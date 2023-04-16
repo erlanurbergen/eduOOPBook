@@ -1,0 +1,30 @@
+{% extends 'oopBook/base.html' %}
+{% block title %}Основная страница{% endblock title %}
+{% block content %}
+
+
+    <div class="alert alert-primary mb-3" role="alert">
+        Данный электронный учебник предназначен для изучения объектно-ориентированного программирования
+    </div>
+
+    <div class="embed-responsive embed-responsive-21by9 d-flex justify-content-center mb-3">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-6DWwR_R4Xk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="alert alert-secondary" role="alert">
+        Чтобы продолжить свой путь в программировании, необходимо знать паттерн проектирования ООП
+        <br>
+        Ниже приведены следующие темы:
+    </div>
+
+    <div class="list-group">
+      <a href="{% url 'classes' %}" class="list-group-item list-group-item-action active" aria-current="true">
+        Классы и объекты
+      </a>
+      <a href="{% url 'encapsulation' %}" class="list-group-item list-group-item-action">Инкапсуляция, атрибуты и свойства
+</a>
+      <a href="{% url 'inheritance' %}" class="list-group-item list-group-item-action">Наследование</a>
+      <a href="{% url 'overridding' %}" class="list-group-item list-group-item-action">Переопределение функционала базового класса</a>
+      <a href="{% url 'class_attributes' %}" class="list-group-item list-group-item-action ">Атрибуты классов и статические методы</a>
+      <a href="{% url 'object' %}" class="list-group-item list-group-item-action ">Класс object. Строковое представление объекта</a>
+    </div>
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends 'oopBook/base.html' %}
+{% block title %} класс Object {% endblock title %}
+{% block content %}
+
+    {% for project in object %}
+        <div class="alert alert-success" role="alert">
+            <h2>{{ project.name }} </h2>
+        </div>
+
+        <div class="alert alert-info" role="alert">
+            {{ project.short_description }}
+        <p>
+            class Person: <br>
+            def __init__(self, name, age): <br>
+                self.name = name  # устанавливаем имя <br>
+                self.age = age  # устанавливаем возраст <br>
+            <br>
+            def display_info(self): <br>
+                print(self) <br>
+                # print(self.__str__())     # или так <br>
+            <br>
+            def __str__(self): <br>
+                return f"Name: {self.name}  Age: {self.age}" <br>
+
+            <br>
+            tom = Person("Tom", 23) <br>
+            print(tom)      # Name: Tom  Age: 23 <br>
+            tom.display_info()  # Name: Tom  Age: 23 <br>
+
+        </p>
+
+        {{ project.large_description }}
+        </div>
+
+        <a class="btn btn-success" href="{% url 'video_lessons' %}" role="button">Видео лекция</a>
+        <a class="btn btn-warning" href="{% url 'tests' %}" role="button">Тест</a>
+        <a class="btn btn-info" href="{% url 'tasks' %}" role="button">Решить задачу</a>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'oopBook/base.html' %}
+{% block title %} Наследование {% endblock title %}
+{% block content %}
+    {% for project in inher %}
+        <div class="alert alert-success" role="alert">
+            <h1>{{ project.name }} </h1>
+        </div>
+
+        <div class="alert alert-primary " role="alert">
+        <p class="text-justify">
+            {{ project.short_description }}
+            <p style="font-weight: normal;">{{ project.large_description }}</p>
+
+            <p>Синтаксис для наследования классов выглядит следующим образом:</p>
+            <p>
+
+                class подкласс (суперкласс):
+                <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;методы_подкласса
+            </p>
+        {{ project.large_description }}
+        <p>
+            class Person:
+            <br>
+    &nbsp;&nbsp;&nbsp;def __init__(self, name):
+            <br>
+        &nbsp;&nbsp;&nbsp; self.__name = name   # имя человека
+            <br>
+    &nbsp;&nbsp;&nbsp;@property
+            <br>
+    &nbsp;&nbsp;&nbsp;def name(self):
+            <br>
+        &nbsp;&nbsp;&nbsp;return self.__name
+            <br>
+    &nbsp;&nbsp;&nbsp;def display_info(self):
+            <br>
+        &nbsp;&nbsp;&nbsp;print(f"Name: {self.__name} ")
+        </p>
+        </div>
+
+        <a class="btn btn-success" href="{% url 'video_lessons' %}" role="button">Видео лекция</a>
+        <a class="btn btn-warning" href="{% url 'tests' %}" role="button">Тест</a>
+        <a class="btn btn-info" href="{% url 'tasks' %}" role="button">Решить задачу</a>
+    {% endfor %}
+{% endblock  %}

@@ -1,0 +1,38 @@
+{% extends 'oopBook/base.html' %}
+{% block title %} Аттрибуты классов {% endblock title %}
+{% block content %}
+    {% for project in attributes %}
+        <div class="alert alert-primary" role="alert">
+            <h2>{{ project.name }}</h2>
+        </div>
+
+        <div class="alert alert-secondary" role="alert">
+            <p>{{ project.short_description }}</p>
+        <p>
+            class Person:
+            <br>
+            &nbsp;&nbsp;&nbsp; type = "Person"
+            <br>
+            &nbsp;&nbsp;&nbsp;description = "Describes a person"
+
+            <br>
+            &nbsp;&nbsp;&nbsp;print(Person.type)          # Person
+            <br>
+            &nbsp;&nbsp;&nbsp;print(Person.description)   # Describes a person
+            <br>
+            Person.type = "Class Person"
+            <br>
+            print(Person.type)          # Class Person
+            <br>
+            <br>
+            {{ project.large_description }}
+
+        </p>
+        </div>
+
+        <a class="btn btn-success" href="{% url 'video_lessons' %}" role="button">Видео лекция</a>
+        <a class="btn btn-warning" href="{% url 'tests' %}" role="button">Тест</a>
+        <a class="btn btn-info" href="{% url 'tasks' %}" role="button">Решить задачу</a>
+
+    {% endfor %}
+{% endblock %}

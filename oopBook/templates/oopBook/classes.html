@@ -1,0 +1,39 @@
+{% extends 'oopBook/base.html' %}
+{% block title %}Классы и объекты{% endblock title %}
+{% block content %}
+
+    {% for project in classes %}
+        <div class="alert alert-success" role="alert">
+            <h1>{{ project.name }} </h1>
+        </div>
+        <div class="alert alert-primary " role="alert">
+        <p class="text-justify">
+            {{ project.short_description }}
+            <h3 style="font-weight: normal;">Класс определяется с помощью ключевого слова class:</h3>
+            <br>
+            class название_класса:
+            <br>
+                атрибуты_класса <br>
+                методы_класса
+        </p>
+
+        <p class="text-justify">
+            {{ project.large_description }}
+        </p>
+        <h5 style="font-weight: normal;">
+            class Person:  определение класса Person
+            <br>
+     def say_hello(self):
+            <br>
+        &nbsp;&nbsp;&nbsp; print("Hello")
+            <br>
+        &nbsp;&nbsp;&nbsp tom = Person()
+            <br>
+        &nbsp;&nbsp;&nbsp tom.say_hello()    # Hello
+        </h5>
+        <p>Здесь определен метод say_hello(), который условно выполняет приветствие - выводит строку на консоль. При определении методов любого класса следует учитывать, что все они должны принимать в качестве первого параметра ссылку на текущий объект, который согласно условностям называется self. Через эту ссылку внутри класса мы можем обратиться к функциональности текущего объекта. Но при самом вызове метода этот параметр не учитывается.</p>
+
+        </div>
+    {% endfor %}
+
+{% endblock %}
